@@ -25,9 +25,7 @@ export class ProductService {
 
     countdown(year: number, month: number, day: number){
       this.now = new Date();
-      //Month - 1 = current month
-      // its mean event date is 2018/02/22
-      this.eventDate = new Date(year, month, day);
+      this.eventDate = new Date(year, month , day);
       this.currentTiime = this.now.getTime();
       this.eventTime = this.eventDate.getTime();
       this.remTime = this.eventTime - this.currentTiime;

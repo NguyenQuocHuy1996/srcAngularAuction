@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
@@ -9,7 +9,7 @@ import { ProductService } from './../../../service/product.service';
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
-export class DetailComponent implements OnInit, OnDestroy {
+export class DetailComponent implements OnInit, OnDestroy, AfterViewInit {
   public productArr: any;
   public id: number;
   public subscription: Subscription;
@@ -22,11 +22,13 @@ export class DetailComponent implements OnInit, OnDestroy {
   monthpost: any;
   daypost: any;
 
-
+  x:any;
   constructor(private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService) {
   }
 
   ngOnInit(){
+    this.proname = this.brand = this.warrantyperiod = this.note = this. username = this.yearpost = this.monthpost = this.daypost = {};
+
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
     });
@@ -56,9 +58,13 @@ export class DetailComponent implements OnInit, OnDestroy {
       });
     });
 
-    this.productService.countdown(this.yearpost, this.monthpost, this.daypost);
-    alert(this.yearpost);
+    //console.log(document.getElementById('ds').value);
+    this.productService.countdown(this.yearpost, Number(this.monthpost) , this.daypost);
   }
+
+   ngAfterViewInit() {
+      console.log(this.yearpost);
+    }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();

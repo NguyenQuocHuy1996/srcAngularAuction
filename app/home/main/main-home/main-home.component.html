@@ -1,0 +1,110 @@
+<!-- phai -->
+<div class="col-md-9 col-xs-12 phai">
+  <h3>Cac san pham dau gia</h3>
+  <div class="daugach2"></div>
+
+  <div class="spchung" *ngFor="let category of categorys">
+    <ul>
+      <li>
+        <a href="#">
+          {{category.name}}
+        </a>
+        <div class="daugach"></div>
+      </li>
+    </ul>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="sanpham">
+          <div class="row">
+            <div *ngFor="let product of products | orderBy:'id':true">
+              <div class="col-md-3 col-xs-12" *ngIf="product.cateID === category.id">
+                <div class="video1">
+                  <img src="../../../../assets/img/sp1-01.png">
+                  <h4>{{product.proname}}</h4>
+                  <div class="play_video">
+                    <ul>
+                      <li>
+                        Người đăng: {{product.username}}
+                      </li>
+                    </ul>
+                    <input type="number" class="nhapdaugia" />
+                    <a [routerLink]="['/san-pham',product.id]" class="btn btn--primary btn--inside uppercase">Đấu giá</a>
+                    <div id="clockdiv">
+                      <!-- <div>
+                        <span id="days" class="days">30</span>
+
+                      </div>
+                      <div>
+                        <span id="hours" class="hours">10</span>
+
+                      </div>
+                      <div>
+                        <span id="minutes" class="minutes">20</span>
+
+                      </div>
+                      <div>
+                        <span id="seconds" class="seconds">48</span>
+                      </div> -->
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="xemthem">
+              <a href="#">Xem thêm</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="containerWrapperProva">
+    <!-- App start -->
+    <div class="slider_gallery_expand">
+      <div class="controlli">
+        <div class="back_btn"></div>
+        <div class="next_btn"></div>
+      </div>
+      <div class="row muovi animationA">
+        <div class="item">
+          <img src="assets/img/qc6.png" alt="">
+          <div class="wrap-text">
+            <h1>LOREM IPSUM</h1>
+
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/qc2.png" alt="">
+          <div class="wrap-text">
+            <h1>LOREM IPSUM</h1>
+
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/qc3.png" alt="">
+          <div class="wrap-text">
+            <h1>LOREM IPSUM</h1>
+
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/qc4.png" alt="">
+          <div class="wrap-text">
+            <h1>LOREM IPSUM</h1>
+
+          </div>
+        </div>
+        <div class="item">
+          <img src="assets/img/qc2.png" alt="">
+          <div class="wrap-text">
+            <h1>LOREM IPSUM</h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- App end -->
+  </div>
+</div>
+<!-- het phai -->

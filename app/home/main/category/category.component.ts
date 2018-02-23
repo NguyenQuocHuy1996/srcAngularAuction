@@ -17,15 +17,22 @@ export class CategoryComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService) {
   }
 
-  ngOnInit(){
+  getID(){
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
     });
-
+  }
+  getProductWithID(){
     this.productService.getProductbyID(this.id).subscribe((data) => {
       //this.router.navigate(['/danh-muc', this.id]);
       this.products = data;
     });
+  }
+  ngOnInit(){
+    this.getID();
+    console.log(this.id);
+    //this.getProductWithID();
+    setTimeout(() => this.getProductWithID(), 1000);
   }
 
   ngOnDestroy() {

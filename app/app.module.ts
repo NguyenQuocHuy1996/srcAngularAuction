@@ -31,6 +31,7 @@ import { CategoryService } from './service/category.service';
 import { LoginService } from './service/login.service';
 import { RegisterService } from './service/register.service';
 import { UserService } from './service/user.service';
+import { AuctionService } from './service/auction.service';
 
 //Guard for Login
 import { CheckLoginGuard } from './guards/checkLogin.guard';
@@ -55,7 +56,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     Ng2OrderModule
   ],
   providers: [LoginService, RegisterService, UserService,
-              ProductService, CategoryService,
+              ProductService, CategoryService,AuctionService,
               CheckLoginGuard
             ],
   bootstrap: [AppComponent]

@@ -10,12 +10,12 @@ import { UserService } from './../service/user.service';
 })
 
 export class RegisterComponent implements OnInit {
-  userArr:any;
+  userArr: any;
   user: any;
   userEmail: any;
   pass: any;
   repass: any;
-  email:any;
+  email: any;
   constructor(private router: Router, private activatedRoute: ActivatedRoute ,
               private userService: UserService,
               private registerService: RegisterService) {
@@ -34,13 +34,13 @@ export class RegisterComponent implements OnInit {
   goToHome(){
     this.router.navigate(['/']);
   }
-  onPass(value:any){
+  onPass(value: any) {
     this.pass = value;
   }
-  onRePass(value:any){
-    this.repass=value;
+  onRePass(value: any){
+    this.repass = value;
   }
-  onEmail(value:any){
+  onEmail(value: any){
     this.email = value;
 
       this.userService.getOneUser(String(this.email)).subscribe((data) => {
@@ -51,8 +51,9 @@ export class RegisterComponent implements OnInit {
     }, error => alert('Error: ' + error));
   }
   onSubmit() {
-    // console.log('Email: ' + this.email);
-    // alert('userEmail: ' + this.userEmail);
+    setTimeout(() => this.check(), 1000);
+  }
+  check(){
     if ( this.pass !== this.repass) {
       alert('Nhập lại mật khẩu chưa đúng');
     }else if (String(this.email) === String(this.userEmail)){

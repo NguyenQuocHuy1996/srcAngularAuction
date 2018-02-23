@@ -27,7 +27,6 @@
                         Người đăng: {{product.username}}
                       </li>
                     </ul>
-                    <input type="number" class="nhapdaugia" />
                     <a [routerLink]="['/san-pham',product.id]" class="btn btn--primary btn--inside uppercase">Đấu giá</a>
                     <div id="clockdiv">
                       <!-- <div>
@@ -52,7 +51,7 @@
               </div>
             </div>
             <div class="xemthem">
-              <a href="#">Xem thêm</a>
+              <a [routerLink]="['/danh-muc',category.id]">Xem thêm</a>
             </div>
           </div>
         </div>

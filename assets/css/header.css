@@ -168,7 +168,8 @@ display: none;
 .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 10px 100%;
+	padding: 0px 392%;
+	margin: 0;
     font-size: 16px;
     border: none;
 }
@@ -216,8 +217,8 @@ display: none;
 	}
 	.menudt1{
 		height: 400px;
-		background: rgb(87, 14, 14);
-		opacity: 0.8;
+		background: rgb(0, 0, 0);
+		opacity: 1;
 		position: absolute;
 		z-index: 200;
 	}
@@ -241,6 +242,7 @@ display: none;
 		border-bottom:2px solid red;
 
 	}
+
 	.danhmucdt ul li img{
 		width: 10%;
 	}
@@ -250,13 +252,14 @@ display: none;
 	}
 	.danhmucdt ul li ul li{
 		margin: 0 0px 0 20px;
-		list-style: circle;
+		list-style: none;
 	}
 	.signin .glyphicon-align-right{
 		background:none;
 		border: none;
 		display: inline;
 	}
+
 
 }
 
@@ -267,3 +270,4 @@ display: none;
 .signinan{
   display:block;
 }
+

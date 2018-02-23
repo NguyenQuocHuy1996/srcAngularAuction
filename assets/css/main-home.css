@@ -11,12 +11,13 @@
  .col-md-4{visibility: visible;}
 
  /*------bangbenphai----*/
- .sanpham .xemthem{
+.xemthem{
 	 float:right;
 	 margin-right: 20px;
 	 margin-top: 20px;
 	 color: #CC382F;
  }
+ .xemthem a:hover{color: #4F7A6B;}
  .phai{
 	float: right;
 	margin: 10px 0;
@@ -60,7 +61,7 @@
 	 height: 200px;
  }
  .phai .row{
-   padding: 10px 0 20px 0;
+   padding: 10px 5px 20px 5px;
  }
 /* ----------sp------------------------------------ */
 .video1 h4{
@@ -154,6 +155,11 @@
 .sanpham .btn--inside {
   margin-left: 0px;
 }
+.sanpham{
+	height:280px;
+	overflow: hidden;
+
+}
 
 
 /*----dongho----------*/
@@ -186,7 +192,16 @@
 }
 
 /* -----didong--------------------------------- */
+/* @media (max-width:1024px){
+	.sanpham{
+		height: 909px;
+	}
+} */
+
  @media (max-width:768px){
+	.sanpham{
+		height: 909px;
+	}
 	.container-fluid .menuan{
 		display:none;
 	}

@@ -65,7 +65,11 @@ $(window).scroll(function () {
 
   //
 })
-
+// button dang hinh//
+$(".btn").bind("click", function(){
+	$("#inp").click();
+});
+//het button dang hin//
 //Login
 $(':input[type=number]').on('mousewheel', function (e) {
   $(this).blur();
@@ -117,6 +121,13 @@ $('.tab a').on('click', function (e) {
   $(target).fadeIn(600);
 
 });
+//affix//
+$('.menuan').affix({
+  offset: {
+    top: 190  
+  }
+});
+
 
 
 
@@ -158,12 +169,7 @@ Philips ambilight tv
 
 
 
-$('.menuan').affix({
-  offset: {
-    top: 190
 
-  }
-})
 
 
 

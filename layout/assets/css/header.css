@@ -141,7 +141,7 @@ body{
 }
 .col-md-12.menuan.remove-margin.affix {
 	top: 0;
-	width:87%;
+	left: 0;
 }
 .col-md-12.menuan.remove-margin.affix.trenthanhsearch  {display: none;}
 
@@ -172,10 +172,7 @@ display: none;
 		position: absolute;
 		z-index: 200;
 	}
-	.col-md-12.menuan.remove-margin.affix {
-		top: 0;
-		width: 99.8%;
-	}
+
 	
 	.menudt1 ul li{
 		
@@ -225,20 +222,14 @@ display: none;
 		width: 97.6%;
 		background:#362D2C;
 	}
-	.col-md-12.menuan.remove-margin.affix {
-		top: 0;
-		width: 99.8%;
-	}
+	
 }
 @media (width: 1024px){
 	.menuan{
 		width: 100%;
 		background:#362D2C;
 	}
-	.col-md-12.menuan.remove-margin.affix {
-		top: 0;
-		width: 95%;
-	}
+	
 }
 
 /* ---------------het nut bam hien menu tren dt-------------------- */

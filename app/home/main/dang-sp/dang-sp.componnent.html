@@ -1,6 +1,7 @@
 <!-- main -->
 <div class="row main">
   <!-- trai -->
+
   <div class="col-md-4 col-xs-12 trai">
     <ul>
       <li>
@@ -45,27 +46,32 @@
           <div class="col-md-6 danganh">
             <div class="daugach2"></div>
             <div class="col-md-12 danganh1">
-              <input type="file">
-              <input type="file">
-              <input type="file">
-              <input type="file">
+              <input type="file" id="inp" />
+              <span class="btn">add file</span>
+            </div>
+            <div class="col-md-12 danganh1">
+              <input type="file" id="inp" />
+              <span class="btn">add file</span>
             </div>
           </div>
           <div class="col-md-6 dangtt">
             <h4>Thông tin sản phẩm</h4>
             <ul>
               <span class="glyphicon glyphicon-tag"></span>
-              <input type="text" name="proname" class="form__field" placeholder="Tên sản phẩm/Bắt buộc" #proname (keyup)="onProNameType(proname.value)" ngModel />
+              <input type="text" name="proname" class="form__field" placeholder="Tên sản phẩm/Bắt buộc" #proname (keyup)="onProNameType(proname.value)"
+                ngModel />
             </ul>
             <div class="daugach3"></div>
             <h4>Thông tin sơ lượt</h4>
             <ul>
               <span class="glyphicon glyphicon-tags"></span>
-              <input type="text" name="brand" class="form__field" placeholder="Thương hiệu/Bắt buộc" #brand (keyup)="onBrandType(brand.value)" ngModel />
+              <input type="text" name="brand" class="form__field" placeholder="Thương hiệu/Bắt buộc" #brand (keyup)="onBrandType(brand.value)"
+                ngModel />
             </ul>
             <ul>
               <span class="glyphicon glyphicon-tags"></span>
-              <input type="text" name="warrantyperiod" class="form__field" placeholder="Bảo hành/Bắt buộc" #warrantyperiod (keyup)="onWarrantyperiodType(warrantyperiod.value)" ngModel />
+              <input type="text" name="warrantyperiod" class="form__field" placeholder="Bảo hành/Bắt buộc" #warrantyperiod (keyup)="onWarrantyperiodType(warrantyperiod.value)"
+                ngModel />
             </ul>
             <ul>
               <span class="glyphicon glyphicon-tags"></span>
@@ -83,7 +89,7 @@
               <option value="72">72 giờ</option>
             </select>
             <div class="col-md-12 col-xs-12 col-ms-12 btn-dangsp1">
-              <button type="submit" class="btn-dangsp">Dang san pham</button>
+              <button type="submit" class="btn-dangsp">Đăng sản phẩm</button>
             </div>
           </div>
           <div class="clearfix"></div>
@@ -91,7 +97,8 @@
             <h4>Thông tin chi tiết</h4>
           </div>
           <div class="col-md-12 phai2">
-            <textarea rows="5" cols="20" name="note" class="form__field" placeholder="Thông tin chi tiết/bắt buộc" #note (keyup)="onNoteType(note.value)" ngModel></textarea>
+            <textarea rows="5" cols="20" name="note" class="form__field" placeholder="Thông tin chi tiết/bắt buộc" #note (keyup)="onNoteType(note.value)"
+              ngModel></textarea>
           </div>
         </form>
       </div>

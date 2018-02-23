@@ -10,8 +10,11 @@ $(document).ready(function () {
       $('.menudt1').slideUp();
       a = true;
     }
-  });
-
+	});
+	
+	$(".btn").bind("click", function(){
+		$("#inp").click();
+	});
   //js cua da dang san pham
   
   // $('.trai .dadang').hover(function(){

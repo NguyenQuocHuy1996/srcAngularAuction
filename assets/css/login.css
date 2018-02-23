@@ -6,11 +6,14 @@
 
 
 body {
-  background:url('../img/bg-01.png');
+ 
+  background-size: cover;
   
 }
 .container{
-	margin: auto;
+  margin: auto;
+  background:#13242f;
+  
 }
 
 a {
@@ -173,7 +176,9 @@ textarea {
 .button:hover, .button:focus {
   background:#C53C3D;
 }
-
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
+  background: red;
+}
 .button-block {
   display: block;
   width: 100%;
@@ -223,23 +228,35 @@ textarea {
 	color: aliceblue;
 	
 }
+.loginx{
+  background: #C20E10;
+  padding:5px 20px;
+  color: white;
+
+}
+h2{
+  font-size: 15px;
+  color: white;
+}
+
 @media (max-width:1200px){
 	.container-fluid {
 		display: none;
 			}
 }
 .loginx{
-  margin: 20px auto;
-  font-size: 30px; 
+  margin: 20px 10px;
+  font-size: 30px;
+  border: none;  
   
 }
-.loginx a{
+.loginx{
   background: #C20E10;
-  padding:2% 38%;
+  padding:1.5% 12%;
   text-decoration: none;
   color: white;
 }
-.loginx a:hover, .loginx a:focus {
+.loginx:hover, .loginx:focus {
   background:#C53C3D;
 }
 .loginxx{
@@ -247,12 +264,13 @@ textarea {
   font-size: 30px; 
   
 }
-.loginxx a{
+.loginxx{
   background: #C20E10;
-  padding:2% 44.5%;
+  padding:2% 12%;
   text-decoration: none;
   color: white;
+  border: none;
 }
-.loginxx a:hover, .loginxx a:focus {
+.loginxx:hover, .loginxx:focus {
   background:#C53C3D;
 }

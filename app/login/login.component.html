@@ -3,19 +3,19 @@
     <div id="login">
       <h1>Welcome Back!</h1>
       <form #login="ngForm" (ngSubmit)="checkLogin()">
-
+        <h2>ID</h2>
         <div class="field-wrap">
           <label>
-            Email Address
-            <span class="req">*</span>
+            
+            <span class="req"></span>
           </label>
           <input type="email" required autocomplete="off" name="email" #email (keyup)="onEmail(email.value)" ngModel />
         </div>
-
+        <h2>PASSWORD</h2>
         <div class="field-wrap">
           <label>
-            Password
-            <span class="req">*</span>
+           
+            <span class="req"></span>
           </label>
           <input type="password" required autocomplete="off" name="pass" #pass (keyup)="onPass(pass.value)" ngModel />
         </div>
@@ -25,8 +25,7 @@
         </p>
         <p class="forgot">
           <a href="register.html">register</a>
-        </p>
-
+        </p>        
         <button class="loginx" type="submit" >Login</button>
         <button class="loginx" type="button" (click)="goToHome()">Go Home</button>
       </form>

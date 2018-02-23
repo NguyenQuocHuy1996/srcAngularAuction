@@ -29,11 +29,15 @@
                           <a href="#">{{user}}</a>
                       </li>
                   </ul>
-                  <ul class="upsp">
-                      <li>
-                          <a [routerLink]="['/dang-san-pham']">Đăng sản phẩm</a>
-                      </li>
-                  </ul>
+                  <div class="dropdown">
+                        <button class="dropbtn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                        <div class="dropdown-content">
+                                <a [routerLink]="['/dang-san-pham']">Đăng sản phẩm</a>
+                                <a [routerLink]="['/dang-san-pham']">Đăng sản phẩm</a>
+                                <a [routerLink]="['/dang-san-pham']">Đăng sản phẩm</a>
+                        </div>
+                      </div>
+                 
               </div>
           </div>
       </div>
@@ -76,7 +80,7 @@
               </div>
           </div>
       </div>
-      <div class="row menuan remove-margin">
+      <div class="row menuan remove-margin ">
           <div class="col-md-6 antrenmobile">
               <ul class="sizechu">
                   <li>

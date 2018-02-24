@@ -92,6 +92,22 @@
 	background: rgb(141, 1, 8);
 	color:white;
 }
+.dangtt h5{
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+.countdownContainer{
+	background: #18323D;
+	padding: 13px;
+	text-align: center;
+	color: white;
+	box-shadow: -2px 5px 9px 2px black;
+}
+#days,#hours,#minutes,#seconds{
+	padding:10px;	
+	font-size: 22px;
+}
 
 
 

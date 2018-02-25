@@ -150,7 +150,7 @@ $('.menuan').affix({
 
 $('section.awSlider .carousel').carousel({
 	pause: "hover",
-  interval: 20000
+  interval: 20
 });
 
 var startImage = $('section.awSlider .item.active > img').attr('src');

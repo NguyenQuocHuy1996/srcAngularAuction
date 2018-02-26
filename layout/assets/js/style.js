@@ -330,3 +330,8 @@ $(window).resize(function(){
 	});
 });
 //SLIDER END
+
+$('.btn-ss').click(function() {
+    $('.active-ss').removeClass('active-ss');
+    $(this).addClass("active-ss");
+});

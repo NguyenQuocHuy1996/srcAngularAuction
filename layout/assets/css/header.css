@@ -133,8 +133,7 @@ body{
 	display: none;
 }
 .menuan{
-	background: #362D2C;
-	/* position: fixed; */
+	background: #362D2C;	
 	z-index: 100;	
 	padding:8px 0;
 	margin-top: 0;	

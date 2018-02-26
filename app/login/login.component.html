@@ -1,7 +1,7 @@
-<div class="loading">
+<div id="loading" class="loading">
     <img src="../../../../assets/img/gif.gif"/>
   </div>
-<div class="container">    
+<div class="container">
   <div class="form">
     <div id="login">
       <h1>Welcome Back!</h1>
@@ -9,7 +9,7 @@
         <h2>EMAIL</h2>
         <div class="field-wrap">
           <label>
-            
+
             <span class="req"></span>
           </label>
           <input type="email" required autocomplete="off" name="email" #email (keyup)="onEmail(email.value)" ngModel />
@@ -17,7 +17,7 @@
         <h2>MẬT KHẨU</h2>
         <div class="field-wrap">
           <label>
-           
+
             <span class="req"></span>
           </label>
           <input type="password" required autocomplete="off" name="pass" #pass (keyup)="onPass(pass.value)" ngModel />
@@ -28,7 +28,7 @@
         </p>
         <p class="forgot">
           <a href="register.html">register</a>
-        </p>        
+        </p>
         <button class="loginx" type="submit" >Login</button>
         <button class="loginx" type="button" (click)="goToHome()">Go Home</button>
       </form>

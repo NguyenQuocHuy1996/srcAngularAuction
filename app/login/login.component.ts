@@ -40,16 +40,19 @@ export class LoginComponent implements OnInit {
     this.passKeyup = value ;
   }
   checkLogin(){
-    setTimeout(() => this.check(), 1000);
+    document.getElementById('loading').style.display = 'block';
+
     this.isLogged = true;
     localStorage.setItem('currentUser', JSON.stringify({ userName: this.username, check: this.isLogged }));
+
+    setTimeout(() => this.check(), 4000);
   }
 
   check() {
     if (this.userKeyup === String(this.user) && this.passKeyup === String(this.pass)) {
       this.loginService.SetLogin(true);
       this.loginService.SetUserName(String(this.user));
-      alert('Đăng nhập thành công, bạn sẽ được chuyển tới trang chủ');
+      // alert('Đăng nhập thành công, bạn sẽ được chuyển tới trang chủ');
       this.router.navigate(['/']);
     }else {
       alert('Nhap lai');

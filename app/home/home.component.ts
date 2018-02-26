@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   check: boolean;
   userName: any;
 
-  constructor (private loginService: LoginService){
+  constructor (private loginService: LoginService) {
 
   }
 

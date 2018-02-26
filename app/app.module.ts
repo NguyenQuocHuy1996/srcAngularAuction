@@ -23,6 +23,8 @@ import { CategoryComponent } from './home/main/category/category.component';
 import { DetailComponent } from './home/main/detail/detail.component';
 import { SanPhamDaDangComponent } from './home/main/sp-da-dang/sp-da-dang.component';
 import { SanPhamDaDauGiaComponent } from './home/main/sp-da-dau-gia/sp-da-dau-gia.component';
+import { ContactComponent } from './home/main/contact/contact.component';
+import { AboutUsComponent } from './home/main/about-us/about-us.component';
 
 import { SideBarHomeComponent } from './home/main/sidebar/sidebarHome.component';
 
@@ -44,7 +46,7 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     HomeComponent, LoginComponent, RegisterComponent, Page404Component,
     HeaderComponent, SliderComponent, MainComponent, FooterComponent,
     MainHomeComponent, DangSPComponent, CategoryComponent, SanPhamDaDangComponent, SanPhamDaDauGiaComponent, DetailComponent,
-    SideBarHomeComponent
+    SideBarHomeComponent, ContactComponent, AboutUsComponent
   ],
   imports: [
     BrowserModule,

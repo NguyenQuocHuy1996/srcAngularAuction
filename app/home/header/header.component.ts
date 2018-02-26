@@ -10,7 +10,7 @@ export class HeaderComponent {
   @Input () check: boolean;
   @Input () userName: any;
   isLogged: boolean;
-  constructor(private router: Router){
+  constructor(private router: Router) {
 
   }
   logOut() {

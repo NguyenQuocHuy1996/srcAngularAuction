@@ -103,6 +103,10 @@
 	text-align: center;
 	color: white;
 	box-shadow: -2px 5px 9px 2px black;
+	margin-top: 10px;
+}
+.countdownContainer h5{
+	margin-top: 0;
 }
 #days,#hours,#minutes,#seconds{
 	padding:10px;	

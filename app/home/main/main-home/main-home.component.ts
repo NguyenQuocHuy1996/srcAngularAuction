@@ -28,6 +28,6 @@ export class MainHomeComponent implements OnInit {
           this.products = response;
       }, error => alert('Error: ' + error));
 
-      //this.productService.countdown(2018, 1, 22);
+
   }
 }

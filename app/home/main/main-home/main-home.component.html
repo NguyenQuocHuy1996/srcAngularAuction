@@ -2,7 +2,7 @@
 <div class="col-md-9 col-xs-12 phai">
   <h3>Các sản phẩm đấu giá</h3>
   <div class="daugach2"></div>
-
+  {{check}}abc
   <div class="spchung" *ngFor="let category of categorys">
     <ul>
       <li>
@@ -21,7 +21,7 @@
               <div id="" class="col-md-3 col-xs-12" *ngIf="product.cateID === category.id">
                 <div class="video1">
                   <img src="../../../../assets/img/sp1-01.png">
-                  <h4>{{product.proname}} {{product.id}}</h4>
+                  <h4>{{product.proname}}</h4>
                   <div class="play_video">
                     <ul>
                       <li>
@@ -33,15 +33,12 @@
 
                       <!-- <div>
                         <span id="days" class="days">30</span>
-
                       </div>
                       <div>
                         <span id="hours" class="hours">10</span>
-
                       </div>
                       <div>
                         <span id="minutes" class="minutes">20</span>
-
                       </div>
                       <div>
                         <span id="seconds" class="seconds">48</span>

@@ -124,7 +124,7 @@ $('.tab a').on('click', function (e) {
 //affix//
 $('.menuan').affix({
   offset: {
-    top: 190  
+    top: 190
   }
 });
 
@@ -291,7 +291,7 @@ var sliderExpand = {
 				target.attr('style','');
 			}
 			if (navigator.userAgent.indexOf('Safari') && !navigator.userAgent.indexOf('Chrome')) {
-    			// questo Ã¨ safari
+
 			}else {
     			target.addClass('animationA');
 			}

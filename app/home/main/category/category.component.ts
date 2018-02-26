@@ -14,7 +14,10 @@ export class CategoryComponent implements OnInit, OnDestroy {
   public products: any[];
   public id: number;
   public subscription: Subscription;
+  win: any;
+  height: number;
   constructor(private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService) {
+    this.height = 290;
   }
 
   getID(){
@@ -30,9 +33,18 @@ export class CategoryComponent implements OnInit, OnDestroy {
   }
   ngOnInit(){
     this.getID();
-    console.log(this.id);
-    //this.getProductWithID();
-    setTimeout(() => this.getProductWithID(), 1000);
+
+    this.getProductWithID();
+
+    // setTimeout(() => this.getProductWithID(), 1000);
+
+    // this.router.navigateByUrl('/danh-muc');
+    // //this.route.navigateByUrl('/componentC', true);
+  }
+
+  loadMore() {
+    this.height += 290;
+    document.getElementById('wrapper-sp').style.height = this.height+ 'px';
   }
 
   ngOnDestroy() {

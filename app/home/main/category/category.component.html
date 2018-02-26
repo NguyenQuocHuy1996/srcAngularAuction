@@ -25,10 +25,10 @@
           </li>
           <div class="container-fluid">
               <div class="row">
-                  <div class="sanpham">
+                  <div class="sanpham" id="wrapper-sp">
                       <div class="row sp1">
-                          <div class="col-md-3 col-xs-12" *ngFor="let product of products | orderBy:'id':true;let i = index">
-                              <div class="video1" *ngIf="i<4">
+                          <div class="sp-margin col-md-3 col-xs-12" *ngFor="let product of products | orderBy:'id':true">
+                              <div class="video1">
                                   <img src="../../../../assets/img/sp1-01.png">
                                   <h4>{{product.proname}}</h4>
                                   <div class="col-ms-12 play_video">
@@ -38,11 +38,11 @@
                               </div>
                           </div>
                       </div>
-                      <a href="#" id="loadMore">Load More</a>
                       <p class="totop">
                           <a href="#top">Back to top</a>
                       </p>
                   </div>
+                  <button (click)="loadMore()">Load More</button>
               </div>
           </div>
       </div>

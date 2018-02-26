@@ -26,7 +26,6 @@ export class MainHomeComponent implements OnInit {
     //Get all Product
       this.productService.getList().subscribe((response: any) => {
           this.products = response;
-          console.log(this.products);
       }, error => alert('Error: ' + error));
 
       //this.productService.countdown(2018, 1, 22);

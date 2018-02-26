@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from './../../../service/product.service';
 import { LoginService } from './../../../service/login.service';
 import { CategoryService } from './../../../service/category.service';
@@ -25,6 +25,8 @@ export class DangSPComponent implements OnInit {
   month: number;
   year: number;
   expiredHours: number;
+  currentUser: any;
+  check: any;
 
   constructor(private productService: ProductService, private loginService: LoginService, private categoryService: CategoryService) {
 
@@ -42,6 +44,8 @@ export class DangSPComponent implements OnInit {
     this.day = this.date.getDate();
     this.month = this.date.getMonth();
     this.year = this.date.getFullYear();
+
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   onProNameType(value: any){
@@ -87,7 +91,7 @@ export class DangSPComponent implements OnInit {
       smallimage2: 'smallimage2 2',
       smallimage3: 'smallimage3 2',
       note: this.note,
-      username: this.loginService.UserName(),
+      username: this.currentUser.userName,
       yearpost: this.expiredDate.getFullYear(),
       monthpost: this.expiredDate.getMonth(),
       daypost: this.expiredDate.getDate()

@@ -16,7 +16,7 @@ body{
 .dong1{
    padding-bottom: 15px;
    width: 100%;
-	 
+
 	 background-size: cover;
    border: none;
 }
@@ -101,25 +101,6 @@ body{
 	color: #FD1B15;
 }
 /* ------hetmenu------------ */
-/* --------user-------- */
-.signin .user{
-	height: 50px;
-	width: 170px;	
-	position: absolute;
-}
-.signin .user ul li{
-	font-size: 20px;
-}
-.dangsanpham .uppercase{
-	margin: 20px 0;
-	width: 170px;
-	height: 30px;
-	padding-left: 0px;
-	padding-top: 8px;
-	color: white;
-	font-size: 13px;
-}
-/* ------hetuser-------- */
 /* ---------------nut bam hien menu tren dt-------------------- */
  .signin .glyphicon-align-right{
 display: none;

@@ -26,18 +26,18 @@
                           Hello!
                       </li>
                       <li>
-                          <a href="#">{{user}}</a>
+                          <!-- <a href="#">{{user}}</a> -->
                       </li>
                   </ul>
                   <div class="dropdown">
-                        <button class="dropbtn"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                        <button class="dropbtn">{{user}}<span class="glyphicon glyphicon-chevron-down"></span></button>
                         <div class="dropdown-content">
                                 <a [routerLink]="['/dang-san-pham']">Đăng sản phẩm</a>
                                 <a [routerLink]="['/san-pham-da-dang']">Sản phẩm đã đăng</a>
                                 <a [routerLink]="['/san-pham-da-dau-gia']">Sản phẩm đã đấu giá</a>
                         </div>
                       </div>
-                 
+
               </div>
           </div>
       </div>

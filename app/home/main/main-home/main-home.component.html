@@ -2,7 +2,6 @@
 <div class="col-md-9 col-xs-12 phai">
   <h3>Các sản phẩm đấu giá</h3>
   <div class="daugach2"></div>
-  {{check}}abc
   <div class="spchung" *ngFor="let category of categorys">
     <ul>
       <li>
@@ -28,7 +27,7 @@
                         Người đăng: {{product.username}}
                       </li>
                     </ul>
-                    <a [routerLink]="['/san-pham',product.id]" class="btn btn--primary btn--inside uppercase">Đấu giá</a>
+                    <a [routerLink]="['/san-pham',product.id]" class="btn btn--primary btn--inside uppercase" *ngIf="check">Đấu giá</a>
                     <div id="clockdiv">
 
                       <!-- <div>

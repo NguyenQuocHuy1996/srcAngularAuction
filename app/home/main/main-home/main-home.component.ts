@@ -11,6 +11,8 @@ export class MainHomeComponent implements OnInit {
   public categorys: any[];
   public products: any[];
   public order: 'id';
+  public check: boolean;
+  currentUser: any;
 
   hoursleft: any;
   constructor(private categoryService: CategoryService, private productService: ProductService) {
@@ -28,6 +30,8 @@ export class MainHomeComponent implements OnInit {
           this.products = response;
       }, error => alert('Error: ' + error));
 
-
+      this.check = false;
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.check = this.currentUser.check;
   }
 }

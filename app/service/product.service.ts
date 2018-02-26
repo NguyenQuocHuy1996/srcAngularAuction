@@ -32,6 +32,8 @@ export class ProductService {
 
       if(this.remTime <= 0) {
         document.getElementById('countdownContainer').style.display = 'none';
+        // document.getElementById('countdownContainer').style.display = 'none';
+        // document.getElementById('countdownContainer').style.display = 'none';
         document.getElementById('countdownContainer-over').style.display = 'block';
         return;
       }

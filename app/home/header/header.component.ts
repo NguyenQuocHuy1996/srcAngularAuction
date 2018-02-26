@@ -9,13 +9,18 @@ import { LoginService } from './../../service/login.service';
 export class HeaderComponent implements OnInit {
   public check: boolean;
   public user: any;
+  currentUser: any;
 
   constructor(private loginService: LoginService){
 
   }
 
   ngOnInit() {
-    this.check = this.loginService.IsLogged();
-    this.user = this.loginService.UserName();
+    this.check = false;
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.user = this.currentUser.userName;
+    this.check = this.currentUser.check;
+    console.log(this.user);
+    console.log(this.check);
   }
 }

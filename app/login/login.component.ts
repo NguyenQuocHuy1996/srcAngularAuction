@@ -13,8 +13,10 @@ export class LoginComponent implements OnInit {
   userArr: any;
   user: any ;
   pass: any ;
+  username: any;
   userKeyup: any ;
   passKeyup: any ;
+  isLogged: boolean;
   constructor(private router: Router, private loginService: LoginService, private userService: UserService) {
 
   }
@@ -29,6 +31,9 @@ export class LoginComponent implements OnInit {
         this.pass = this.userArr.map(function(b){
           return b['password'];
         });
+        this.username = this.userArr.map(function(c){
+          return c['firstname'];
+        });
     }, error => alert('Error: ' + error));
   }
   onPass(value: any){
@@ -36,10 +41,12 @@ export class LoginComponent implements OnInit {
   }
   checkLogin(){
     setTimeout(() => this.check(), 1000);
+    this.isLogged = true;
+    localStorage.setItem('currentUser', JSON.stringify({ userName: this.username, check: this.isLogged }));
   }
 
-  check(){
-    if(this.userKeyup === String(this.user) && this.passKeyup === String(this.pass)) {
+  check() {
+    if (this.userKeyup === String(this.user) && this.passKeyup === String(this.pass)) {
       this.loginService.SetLogin(true);
       this.loginService.SetUserName(String(this.user));
       alert('Đăng nhập thành công, bạn sẽ được chuyển tới trang chủ');

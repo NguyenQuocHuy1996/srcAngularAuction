@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CategoryService } from 'app/service/category.service';
 import { ProductService } from 'app/service/product.service';
 @Component({
@@ -11,9 +11,7 @@ export class MainHomeComponent implements OnInit {
   public categorys: any[];
   public products: any[];
   public order: 'id';
-  public check: boolean;
-  currentUser: any;
-
+  @Input() check: boolean;
   hoursleft: any;
   constructor(private categoryService: CategoryService, private productService: ProductService) {
 
@@ -29,9 +27,5 @@ export class MainHomeComponent implements OnInit {
       this.productService.getList().subscribe((response: any) => {
           this.products = response;
       }, error => alert('Error: ' + error));
-
-      this.check = false;
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      this.check = this.currentUser.check;
   }
 }

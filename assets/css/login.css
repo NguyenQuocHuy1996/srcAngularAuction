@@ -178,6 +178,7 @@ textarea {
 }
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
   background: red;
+  z-index: -1;
 }
 .button-block {
   display: block;
@@ -237,6 +238,24 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 h2{
   font-size: 15px;
   color: white;
+}
+.loading{
+  position: fixed;
+  background: #000000cf;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: none;
+}
+.loading img{
+  width: 6%;
+  margin: auto;
+  text-align: center;
+  left: 0;
+  right: 0;
+  position: fixed;
+  height: auto;
+  margin-top: 260px;
 }
 
 @media (max-width:1200px){

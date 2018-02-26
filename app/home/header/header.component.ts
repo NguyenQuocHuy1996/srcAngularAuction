@@ -1,26 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from './../../service/login.service';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component ({
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
 
-export class HeaderComponent implements OnInit {
-  public check: boolean;
-  public user: any;
-  currentUser: any;
-
-  constructor(private loginService: LoginService){
+export class HeaderComponent {
+  @Input () check: boolean;
+  @Input () userName: any;
+  constructor(private router: Router){
 
   }
-
-  ngOnInit() {
+  logOut() {
     this.check = false;
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.user = this.currentUser.userName;
-    this.check = this.currentUser.check;
-    console.log(this.user);
-    console.log(this.check);
+    localStorage.setItem('currentUser', JSON.stringify({ check: this.check }));
+    this.router.navigate(['/']);
   }
 }

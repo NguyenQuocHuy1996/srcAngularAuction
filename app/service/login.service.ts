@@ -3,8 +3,9 @@ import { userInfo } from 'os';
 
 @Injectable()
 export class LoginService {
-  public check: boolean;
-  public user: any;
+  check: boolean;
+  user: any;
+  currentUser: any;
   IsLogged(): boolean {
     return this.check;
   }

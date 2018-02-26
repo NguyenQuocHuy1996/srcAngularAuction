@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.userName = this.currentUser.userName;
     this.check = this.currentUser.check;
+
     this.loginService.SetLogin(this.check);
   }
 }

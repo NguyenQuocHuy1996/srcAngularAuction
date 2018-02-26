@@ -18,6 +18,4 @@ export class SideBarHomeComponent implements OnInit {
           this.categorys = response;
         }, error => alert('Error: ' + error));
     }
-
-
 }

@@ -9,12 +9,15 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   @Input () check: boolean;
   @Input () userName: any;
+  isLogged: boolean;
   constructor(private router: Router){
 
   }
   logOut() {
-    this.check = false;
-    localStorage.setItem('currentUser', JSON.stringify({ check: this.check }));
+    this.isLogged = false;
+    localStorage.setItem('currentUser', JSON.stringify({ userName: '', check: this.isLogged }));
     this.router.navigate(['/']);
+    window.location.reload();
+    console.log(this.isLogged);
   }
 }

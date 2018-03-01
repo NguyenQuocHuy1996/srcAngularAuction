@@ -5,7 +5,7 @@
   <div class="spchung" *ngFor="let category of categorys">
     <ul>
       <li>
-        <a href="#">
+        <a [routerLink]="['/danh-muc',category.id]">
           {{category.name}}
         </a>
         <div class="daugach"></div>
@@ -15,12 +15,14 @@
       <div class="row">
         <div class="sanpham">
           <div class="row">
-            <div *ngFor="let product of products | orderBy:'id':true">
+            <!-- <div *ngFor="let product of products | orderBy:'id':true"> -->
+                <div *ngFor="let product of filterProduct(category) | orderBy: id :true ">
             <!-- <div *ngFor="let product of products | async"> -->
-              <div id="" class="col-md-3 col-xs-12" *ngIf="product.cateID === category.id">
+              <div id="" class="col-md-3 col-xs-12" >
                 <div class="video1">
+                  <!-- <img [src]="product.mainimage"> -->
                   <img src="../../../../assets/img/sp1-01.png">
-                  <h4>{{product.proname}}</h4>
+                  <h4>{{product.id}}</h4>
                   <div class="play_video">
                     <ul>
                       <li>
@@ -58,9 +60,9 @@
                 </div>
               </div>
             </div>
-            <div class="xemthem">
+            <!-- <div class="xemthem">
               <a [routerLink]="['/danh-muc',category.id]">Xem thêm</a>
-            </div>
+            </div> -->
           </div>
         </div>
         <div class="xemthem">

@@ -1,7 +1,6 @@
 <!-- main -->
 <div class="row main">
   <!-- trai -->
-
   <div class="col-md-4 col-xs-12 trai">
     <ul>
       <li>
@@ -34,7 +33,6 @@
     </div>
   </div>
   <!-- het trai -->
-
   <!-- phai -->
   <div class="col-md-8 col-xs-12 phai">
     <div class="row phai1">
@@ -46,13 +44,26 @@
           <div class="col-md-6 danganh">
             <div class="daugach2"></div>
             <div class="col-md-12 danganh1">
+              <!-- <input type="file" id="inp" />
+              <span class="btn">add file</span> -->
+              <!-- <app-upload-image></app-upload-image> -->
+
+              <!-- Upload image go here -->
+              <image-upload
+              [url]="'https://api.imgur.com/3/image'"
+              [headers]="{Authorization: 'Client-ID faef2b533303522'}"
+              (removed)="onRemoved($event)"
+              (uploadFinished)="imageFinishedUploading($event)"
+              (uploadStateChanged)="onUploadStateChanged($event)">
+            </image-upload>
+
+
+
+            </div>
+            <!-- <div class="col-md-12 danganh1">
               <input type="file" id="inp" />
               <span class="btn">add file</span>
-            </div>
-            <div class="col-md-12 danganh1">
-              <input type="file" id="inp" />
-              <span class="btn">add file</span>
-            </div>
+            </div> -->
           </div>
           <div class="col-md-6 dangtt">
             <h4>Thông tin sản phẩm</h4>

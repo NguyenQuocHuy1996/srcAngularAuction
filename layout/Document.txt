@@ -1,9 +1,0 @@
-Version 1.0.0
-	- Home :100%
-	- Login: 100%
-	- dangsanpham: 80%
-Version 1.2.0
-	- Home :100%
-	- Login: 100%
-	- dangsanpham: 90%
-		

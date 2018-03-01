@@ -11,16 +11,17 @@ export class HomeComponent implements OnInit {
   check: boolean;
   userName: any;
 
-  constructor (private loginService: LoginService) {
+  constructor(private loginService: LoginService) {
 
   }
 
   ngOnInit() {
     this.check = false;
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.userName = this.currentUser.userName;
-    this.check = this.currentUser.check;
-
-    this.loginService.SetLogin(this.check);
+    if (this.currentUser) {
+      this.userName = this.currentUser.userName;
+      this.check = this.currentUser.check;
+      this.loginService.SetLogin(this.check);
+    }
   }
 }

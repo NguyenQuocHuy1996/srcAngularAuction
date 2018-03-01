@@ -183,8 +183,8 @@
   margin-left: 0px;
 }
 #wrapper-sp{
-  height: 290px;
-  overflow: hidden;
+  /* height: 290px;
+  overflow: hidden; */
 }
 #wrapper-sp .sp-margin{
   margin-bottom:20px;

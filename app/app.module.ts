@@ -27,6 +27,7 @@ import { ContactComponent } from './home/main/contact/contact.component';
 import { AboutUsComponent } from './home/main/about-us/about-us.component';
 
 import { SideBarHomeComponent } from './home/main/sidebar/sidebarHome.component';
+import { UploadImageComponent } from './home/main/dang-sp/upload-image/upload-image.component';
 
 import { ProductService } from './service/product.service';
 import { CategoryService } from './service/category.service';
@@ -40,13 +41,19 @@ import { CheckLoginGuard } from './guards/checkLogin.guard';
 
 //Pipe Sort
 import { Ng2OrderModule } from 'ng2-order-pipe';
+
+//Image upload
+import { ImageUploadModule } from 'angular2-image-upload';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent, LoginComponent, RegisterComponent, Page404Component,
     HeaderComponent, SliderComponent, MainComponent, FooterComponent,
     MainHomeComponent, DangSPComponent, CategoryComponent, SanPhamDaDangComponent, SanPhamDaDauGiaComponent, DetailComponent,
-    SideBarHomeComponent, ContactComponent, AboutUsComponent
+    SideBarHomeComponent, ContactComponent, AboutUsComponent, UploadImageComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +62,8 @@ import { Ng2OrderModule } from 'ng2-order-pipe';
     AppRoutes,
     ReactiveFormsModule,
 
-    Ng2OrderModule
+    Ng2OrderModule,
+    ImageUploadModule.forRoot()
   ],
   providers: [LoginService, RegisterService, UserService,
               ProductService, CategoryService,AuctionService,

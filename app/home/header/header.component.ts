@@ -20,4 +20,9 @@ export class HeaderComponent {
     window.location.reload();
     console.log(this.isLogged);
   }
+
+  removeLocalStorage(){
+    localStorage.removeItem('currentUser');
+    window.location.reload();
+  }
 }

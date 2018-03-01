@@ -2,10 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ProductService } from './../../../service/product.service';
 import { LoginService } from './../../../service/login.service';
 import { CategoryService } from './../../../service/category.service';
-
-//CountDown Time
-
-
+import { UploadMetadata, FileHolder } from 'angular2-image-upload';
 @Component ({
   selector: 'app-dangSP',
   templateUrl: './dang-sp.componnent.html',
@@ -46,7 +43,15 @@ export class DangSPComponent implements OnInit {
     this.year = this.date.getFullYear();
 
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    // $(document).ready(function(){
+    //     $('#btnTest').click(function(){
+    //       alert('Mày làm được rồi');
+    //     });
+    // });
+
   }
+
 
   onProNameType(value: any){
     this.proname = value;
@@ -85,13 +90,9 @@ export class DangSPComponent implements OnInit {
       proname: this.proname,
       brand: this.brand,
       warrantyperiod: this.warrantyperiod,
-      auction: 15,
       mainimage: 'mainimage 2',
-      smallimage1: 'smallimage1 2',
-      smallimage2: 'smallimage2 2',
-      smallimage3: 'smallimage3 2',
       note: this.note,
-      username: this.currentUser.userName,
+      username: String(this.currentUser.userEmail),
       yearpost: this.expiredDate.getFullYear(),
       monthpost: this.expiredDate.getMonth(),
       daypost: this.expiredDate.getDate()
@@ -101,6 +102,35 @@ export class DangSPComponent implements OnInit {
         alert('Đăng sản phẩm thành công');
         //this.router.navigate(['/']);
     }, error => alert('Error: ' + error));
+  }
+
+
+  private fileCounter = 0;
+
+  onBeforeUpload = (metadata: UploadMetadata) => {
+    if (this.fileCounter % 2 === 0) {
+      metadata.abort = true;
+    } else {
+      // mutate the file or replace it entirely - metadata.file
+      metadata.url = 'http://somewhereelse.com'
+    }
+
+    this.fileCounter++;
+    return metadata;
+  };
+
+
+  imageFinishedUploading(file: FileHolder) {
+    var response = JSON.stringify(file.serverResponse);
+    console.log(response);
+  }
+
+  onRemoved(file: FileHolder) {
+    // do some stuff with the removed file.
+  }
+
+  onUploadStateChanged(state: boolean) {
+    // console.log(JSON.stringify(state));
   }
 }
 

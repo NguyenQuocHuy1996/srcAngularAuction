@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, private loginService: LoginService, private userService: UserService) {
 
   }
-  onEmail(value: any){
+  onEmail(value: any) {
     this.userKeyup = value ;
 
     this.userService.getOneUser(String(this.userKeyup)).subscribe((data) => {
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     document.getElementById('loading').style.display = 'block';
 
     this.isLogged = true;
-    localStorage.setItem('currentUser', JSON.stringify({ userName: this.username, check: this.isLogged }));
+    localStorage.setItem('currentUser', JSON.stringify({ userEmail: this.user, userName: this.username, check: this.isLogged }));
 
     setTimeout(() => this.check(), 4000);
   }
@@ -52,10 +52,10 @@ export class LoginComponent implements OnInit {
     if (this.userKeyup === String(this.user) && this.passKeyup === String(this.pass)) {
       this.loginService.SetLogin(true);
       this.loginService.SetUserName(String(this.user));
-      // alert('Đăng nhập thành công, bạn sẽ được chuyển tới trang chủ');
       this.router.navigate(['/']);
     }else {
-      alert('Nhap lai');
+      document.getElementById('loading').style.display = 'none';
+      alert('Sai Email hoặc mật khẩu');
     }
   }
 

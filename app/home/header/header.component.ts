@@ -14,14 +14,11 @@ export class HeaderComponent {
 
   }
   logOut() {
-    this.isLogged = false;
-    localStorage.setItem('currentUser', JSON.stringify({ userName: '', check: this.isLogged }));
-    this.router.navigate(['/']);
-    window.location.reload();
-    console.log(this.isLogged);
-  }
-
-  removeLocalStorage(){
+    // this.isLogged = false;
+    // localStorage.setItem('currentUser', JSON.stringify({ userName: '', check: this.isLogged }));
+    // this.router.navigate(['/']);
+    // window.location.reload();
+    // console.log(this.isLogged);
     localStorage.removeItem('currentUser');
     window.location.reload();
   }

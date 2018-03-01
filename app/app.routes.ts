@@ -30,7 +30,8 @@ const routing: Routes = [
           { path: 'danh-muc/:id', component: CategoryComponent }
         ]
       },
-      { path: 'dang-san-pham', component: DangSPComponent, canActivate: [CheckLoginGuard] },
+      // { path: 'dang-san-pham', component: DangSPComponent, canActivate: [CheckLoginGuard] },
+      { path: 'dang-san-pham', component: DangSPComponent},
       { path: 'san-pham-da-dau-gia', component: SanPhamDaDauGiaComponent, canActivate: [CheckLoginGuard] },
       { path: 'san-pham-da-dang', component: SanPhamDaDangComponent, canActivate: [CheckLoginGuard] },
       { path: 'lien-he', component: ContactComponent },

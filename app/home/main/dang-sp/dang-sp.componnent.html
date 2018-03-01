@@ -1,5 +1,8 @@
+<div id="loading" class="loading">
+  <img src="../../../../assets/img/gif.gif"/>
+</div>
 <!-- main -->
-<div class="row main">
+<div class=".linkrow main">
   <!-- trai -->
   <div class="col-md-4 col-xs-12 trai">
     <ul>
@@ -49,16 +52,26 @@
               <!-- <app-upload-image></app-upload-image> -->
 
               <!-- Upload image go here -->
-              <image-upload
-              [url]="'https://api.imgur.com/3/image'"
-              [headers]="{Authorization: 'Client-ID faef2b533303522'}"
-              (removed)="onRemoved($event)"
-              (uploadFinished)="imageFinishedUploading($event)"
-              (uploadStateChanged)="onUploadStateChanged($event)">
-            </image-upload>
-
-
-
+              <!-- <image-upload
+                [url]="'https://api.imgur.com/3/image'"
+                [headers]="{
+                  Authorization: 'Client-ID faef2b533303522',
+                  Accept: 'application/json'
+                }"
+                [max]="1"
+                buttonCaption="Tải ảnh lên từ máy tính"
+                dropBoxMessage=""
+                clearButtonCaption="Xóa ảnh"
+                (removed)="onRemoved($event)"
+                (uploadFinished)="imageFinishedUploading($event)"
+                (uploadStateChanged)="onUploadStateChanged($event)">
+              </image-upload>
+              <button (click)="onClickMe()" type="button">Click me</button> -->
+              <form id="imgur">
+                  <input type="file" class="imgur" accept="image/*" data-max-size="5000"/>
+              </form>
+              <img id="my_image" src="" alt="">
+              <input type="hidden" id="imgLink" name='imgLink' [(ngModel)]='imgLink'>
             </div>
             <!-- <div class="col-md-12 danganh1">
               <input type="file" id="inp" />
@@ -69,31 +82,31 @@
             <h4>Thông tin sản phẩm</h4>
             <ul>
               <span class="glyphicon glyphicon-tag"></span>
-              <input type="text" name="proname" class="form__field" placeholder="Tên sản phẩm/Bắt buộc" #proname (keyup)="onProNameType(proname.value)"
+              <input type="text" name="proname" id="proname" class="form__field" placeholder="Tên sản phẩm/Bắt buộc" #proname (keyup)="onProNameType(proname.value)"
                 ngModel />
             </ul>
             <div class="daugach3"></div>
             <h4>Thông tin sơ lượt</h4>
             <ul>
               <span class="glyphicon glyphicon-tags"></span>
-              <input type="text" name="brand" class="form__field" placeholder="Thương hiệu/Bắt buộc" #brand (keyup)="onBrandType(brand.value)"
+              <input type="text" name="brand" id="brand" class="form__field" placeholder="Thương hiệu/Bắt buộc" #brand (keyup)="onBrandType(brand.value)"
                 ngModel />
             </ul>
             <ul>
               <span class="glyphicon glyphicon-tags"></span>
-              <input type="text" name="warrantyperiod" class="form__field" placeholder="Bảo hành/Bắt buộc" #warrantyperiod (keyup)="onWarrantyperiodType(warrantyperiod.value)"
+              <input type="text" name="warrantyperiod" id="warrantyperiod" class="form__field" placeholder="Bảo hành/Bắt buộc" #warrantyperiod (keyup)="onWarrantyperiodType(warrantyperiod.value)"
                 ngModel />
             </ul>
             <ul>
               <span class="glyphicon glyphicon-tags"></span>
-              <select #selectedCategory (change)="callType(selectedCategory.value)">
+              <select id="selectedCategory" #selectedCategory (change)="callType(selectedCategory.value)">
                 <option value="-1">Chọn danh mục sản phẩm</option>
                 <option *ngFor="let cat of categorys" [value]="cat.id">{{cat.name}}</option>
               </select>
             </ul>
             <div class="daugach3"></div>
             <h4>Thời gian: </h4>
-            <select #selectedHours (change)="onHours(selectedHours.value)">
+            <select id="selectedHours" #selectedHours (change)="onHours(selectedHours.value)">
               <option value="-1">Chọn giờ hết hạn đấu giá</option>
               <option value="24">24 giờ</option>
               <option value="48">48 giờ</option>
@@ -108,7 +121,7 @@
             <h4>Thông tin chi tiết</h4>
           </div>
           <div class="col-md-12 phai2">
-            <textarea rows="5" cols="20" name="note" class="form__field" placeholder="Thông tin chi tiết/bắt buộc" #note (keyup)="onNoteType(note.value)"
+            <textarea rows="5" cols="20" name="note" id="note" class="form__field" placeholder="Thông tin chi tiết/bắt buộc" #note (keyup)="onNoteType(note.value)"
               ngModel></textarea>
           </div>
         </form>

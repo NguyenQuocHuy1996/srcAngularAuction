@@ -20,9 +20,8 @@
             <!-- <div *ngFor="let product of products | async"> -->
               <div id="" class="col-md-3 col-xs-12" >
                 <div class="video1">
-                  <!-- <img [src]="product.mainimage"> -->
-                  <img src="../../../../assets/img/sp1-01.png">
-                  <h4>{{product.id}}</h4>
+                  <img [src]="product.mainimage">
+                  <h4>{{product.name}}</h4>
                   <div class="play_video">
                     <ul>
                       <li>
@@ -31,12 +30,12 @@
                     </ul>
                     <ul>
                       <li>
-                        Thương hiệu: Nike
+                        Thương hiệu: {{product.brand}}
                       </li>
                     </ul>
                     <ul>
                       <li>
-                        Bảo hành: 3 năm
+                        Bảo hành: {{product.warrantyperiod}}
                       </li>
                     </ul>
                     <a [routerLink]="['/san-pham',product.id]" class="btn btn--primary btn--inside uppercase" *ngIf="check">Đấu giá</a>

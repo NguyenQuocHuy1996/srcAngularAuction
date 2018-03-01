@@ -3,6 +3,7 @@ import { ProductService } from './../../../service/product.service';
 import { LoginService } from './../../../service/login.service';
 import { CategoryService } from './../../../service/category.service';
 import { UploadMetadata, FileHolder } from 'angular2-image-upload';
+import { Router } from '@angular/router';
 @Component ({
   selector: 'app-dangSP',
   templateUrl: './dang-sp.componnent.html',
@@ -23,36 +24,31 @@ export class DangSPComponent implements OnInit {
   year: number;
   expiredHours: number;
   currentUser: any;
+  currentPost: any;
   check: any;
+  public imgLink: any;
 
-  constructor(private productService: ProductService, private loginService: LoginService, private categoryService: CategoryService) {
+  constructor(private router: Router, private productService: ProductService, private loginService: LoginService, private categoryService: CategoryService) {
 
   }
 
   ngOnInit(){
-    this.productService.getProductbyUser(String(this.loginService.UserName())).subscribe((data) => {
-      this.products = data;
-    });
-
-    this.categoryService.getList().subscribe((response: any) => {
-      this.categorys = response;
-    }, error => alert('Error: ' + error));
-
-    this.day = this.date.getDate();
-    this.month = this.date.getMonth();
-    this.year = this.date.getFullYear();
-
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if(this.currentUser){
+      this.categoryService.getList().subscribe((response: any) => {
+        this.categorys = response;
+      }, error => alert('Error: ' + error));
 
-    // $(document).ready(function(){
-    //     $('#btnTest').click(function(){
-    //       alert('Mày làm được rồi');
-    //     });
-    // });
+      this.productService.getProductbyUser(String(this.currentUser.userEmail)).subscribe((data) => {
+        this.products = data;
+        console.log(this.products);
+      });
+    } else{
+      this.router.navigate(['/']);
+    }
+
 
   }
-
-
   onProNameType(value: any){
     this.proname = value;
   }
@@ -83,55 +79,63 @@ export class DangSPComponent implements OnInit {
       this.expiredDate = new Date(this.year, this.month, this.day + 1);
     }
   }
-
   onSubmit(){
+    this.imgLink = (<HTMLInputElement>document.getElementById('imgLink')).value;
+    this.day = this.date.getDate();
+    this.month = this.date.getMonth();
+    this.year = this.date.getFullYear();
     const product = {
       cateID: this.cateID,
       proname: this.proname,
       brand: this.brand,
       warrantyperiod: this.warrantyperiod,
-      mainimage: 'mainimage 2',
+      mainimage: this.imgLink,
       note: this.note,
       username: String(this.currentUser.userEmail),
       yearpost: this.expiredDate.getFullYear(),
       monthpost: this.expiredDate.getMonth(),
       daypost: this.expiredDate.getDate()
     }
-    this.productService.Add(product).subscribe(respone => {
-        console.log(respone);
-        alert('Đăng sản phẩm thành công');
-        //this.router.navigate(['/']);
-    }, error => alert('Error: ' + error));
-  }
-
-
-  private fileCounter = 0;
-
-  onBeforeUpload = (metadata: UploadMetadata) => {
-    if (this.fileCounter % 2 === 0) {
-      metadata.abort = true;
-    } else {
-      // mutate the file or replace it entirely - metadata.file
-      metadata.url = 'http://somewhereelse.com'
+    if(this.imgLink === null || this.imgLink === '' || this.imgLink === 'null'){
+      alert('Đã có lỗi xảy ra, vui lòng thử lại');
+      window.location.reload();
+    } else{
+      this.productService.Add(product).subscribe(respone => {
+          alert('Đăng sản phẩm thành công');
+          window.location.reload();
+      }, error => alert('Error: ' + error));
     }
-
-    this.fileCounter++;
-    return metadata;
-  };
-
-
-  imageFinishedUploading(file: FileHolder) {
-    var response = JSON.stringify(file.serverResponse);
-    console.log(response);
   }
 
-  onRemoved(file: FileHolder) {
-    // do some stuff with the removed file.
-  }
 
-  onUploadStateChanged(state: boolean) {
-    // console.log(JSON.stringify(state));
-  }
+  //private fileCounter = 0;
+
+  // onBeforeUpload = (metadata: UploadMetadata) => {
+  //   if (this.fileCounter % 2 === 0) {
+  //     metadata.abort = true;
+  //   } else {
+  //     // mutate the file or replace it entirely - metadata.file
+  //     metadata.url = 'http://somewhereelse.com'
+  //   }
+
+  //   this.fileCounter++;
+  //   return metadata;
+  // };
+
+  // imageFinishedUploading(file: FileHolder) {
+  //   var obj = JSON.parse(JSON.stringify(file.serverResponse));
+  //   //var obj = file.serverResponse;
+  //   this.text = obj;
+  //   console.log(obj._body.data.link);
+  // }
+
+  // onRemoved(file: FileHolder) {
+  //   // do some stuff with the removed file.
+  // }
+
+  // onUploadStateChanged(state: boolean) {
+  //   // console.log(JSON.stringify(state));
+  // }
 }
 
 

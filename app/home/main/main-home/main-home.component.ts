@@ -37,12 +37,10 @@ export class MainHomeComponent implements OnInit {
   }
 
   filterProduct( cate) {
-
-
     var productArr = [];
     if (this.products) {
       this.products.forEach(product => {
-        if (product.cateID === cate.id && productArr.length < 3) {
+        if (product.cateID === cate.id && productArr.length < 4) {
           productArr.push(product);
         }
       });

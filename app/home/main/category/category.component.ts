@@ -42,7 +42,6 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    debugger;
     this.getID();
 
     // this.getProductWithID();

@@ -65,15 +65,14 @@ export class DetailComponent implements OnInit, OnDestroy {
     if (Object.keys(this.aucArr).length){
       this.auctionService.Edit(this.aucID, auction).subscribe ( response => {
         alert('Bạn đã cập nhật giá đấu');
+        window.location.reload();
       }, error => alert('Error: ' + error));
     } else {
       this.auctionService.Add(auction).subscribe ( response => {
         alert('Đấu giá thành công');
+        window.location.reload();
       }, error => alert('Error: ' + error));
     }
-
-    // console.log('Id of Product: ' + this.id);
-    // console.log('User name: ' + this.userName);
   }
   ngOnInit(){
     this.proname = this.brand = this.warrantyperiod = this.note = this.yearpost = this.monthpost = this.daypost = {};

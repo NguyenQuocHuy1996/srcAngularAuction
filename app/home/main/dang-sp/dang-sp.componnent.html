@@ -13,7 +13,7 @@
     <div *ngFor="let product of products | orderBy:'id':true;let i = index">
       <div class="col-md-12 dadang" *ngIf="i<6">
         <div class="col-md-4 hinhsp">
-          <img src="../../../../assets/img/sanphamdadang-01.png" />
+          <img [src]="product.mainimage" />
         </div>
         <div class="col-md-8 ttsp">
           <ul>
@@ -23,12 +23,12 @@
             </li>
           </ul>
           <div class="col-md-12 sndg">
-            <h4>So nguoi dau gia</h4>
+            <!-- <h4>So nguoi dau gia</h4>
             <ul>
               <li>
                 <h5>120</h5>
               </li>
-            </ul>
+            </ul> -->
             <a [routerLink]="['/san-pham',product.id]">Chi tiet</a>
           </div>
         </div>

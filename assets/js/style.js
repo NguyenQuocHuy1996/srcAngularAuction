@@ -315,7 +315,6 @@ function sliderResize(){
   }
   return [ws,dividi]
 }
-
 function sliderInit(){
 	a = sliderResize();
 	$('.slider_gallery_expand').each(function(e){
@@ -326,12 +325,12 @@ function sliderInit(){
 $(document).ready(function(){
 	sliderInit();
 });
-$(window).resize(function(){
-	a = sliderResize();
-   $('.slider_gallery_expand').each(function(e){
-			sliderExpand.resize(e,a[1]);
-	});
-});
+// $(window).resize(function(){
+// 	a = sliderResize();
+//    $('.slider_gallery_expand').each(function(e){
+// 			sliderExpand.resize(e,a[1]);
+// 	});
+// });
 //SLIDER END
 
 $(document).ready(function(){

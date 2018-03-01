@@ -261,5 +261,13 @@
     opacity:unset;
   }
 }
-
+.btn-loadmore{
+	border: none;
+    float: rihgt;
+    float: right;
+    margin-right: 11px;
+    background: #c20e10;
+    color: white;
+    padding: 4px;
+}
 /* Custom CSS */

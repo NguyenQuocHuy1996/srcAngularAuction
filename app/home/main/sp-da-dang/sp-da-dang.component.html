@@ -9,39 +9,41 @@
       </ul>
       <div class="tab-content">
           <div class="tab-pane" id="sp">
-              <div class="col-md-12 dadang">
+            <!-- SP Da dang -->
+              <div class="col-md-12 dadang" *ngFor="let product of productArr">
                   <div class="col-md-4 hinhsp">
-                      <img src="../../../../assets/img/sanphamdadang-01.png" />
+                      <img [src]="product.mainimage" />
                   </div>
                   <div class="col-md-8 ttsp">
                       <ul>
                           <li>
                               <img src="../../../../assets/img/tamgiacdadang-01.png" />
-                              <a href="#">AIR JORDAN 4 RETRO "2012 RELEASE"</a>
+                              <a href="#">{{product.name}}</a>
                           </li>
                       </ul>
                       <div class="col-md-12 sndg">
-                          <h4>So nguoi dau gia</h4>
+                          <!-- <h4>So nguoi dau gia</h4>
                           <ul>
                               <li>
                                   <h5>120</h5>
                               </li>
-                          </ul>
+                          </ul> -->
                           <a href="#">Chi tiet</a>
                       </div>
                   </div>
               </div>
           </div>
           <div class="tab-pane" id="info">
-              <div class="col-md-12 dadang">
+            <!-- SP Da dau gia -->
+              <div class="col-md-12 dadang" *ngFor="let proAuc of productAuc">
                   <div class="col-md-4 hinhsp">
-                      <img src="../../../../assets/img/sanphamdadang-01.png" />
+                      <img [src]="proAuc.mainimage" />
                   </div>
                   <div class="col-md-8 ttsp">
                       <ul>
                           <li>
                               <img src="../../../../assets/img/tamgiacdadang-01.png" />
-                              <a href="#">AIR JORDAN 4 RETRO "2012 RELEASE"</a>
+                              <a href="#">{{proAuc.name}}</a>
                           </li>
                       </ul>
                       <div class="col-md-12 sndg">

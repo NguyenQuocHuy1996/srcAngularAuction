@@ -28,6 +28,13 @@ export class AuctionService {
       })
     }
 
+    getAuctionByUser(userEmail: String){
+      return this._http.get(this.apiURL)
+        .map( res => {
+          return res.json().filter((auction) => String(auction.userName) === String(userEmail));
+      })
+    }
+
     Add(data): Observable<any>{
       return this._http.post(this.apiURL, data).map((response: Response) => response.json())
     }

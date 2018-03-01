@@ -43,6 +43,12 @@ export class DangSPComponent implements OnInit {
         this.products = data;
         console.log(this.products);
       });
+
+
+      this.day = this.date.getDate();
+      this.month = this.date.getMonth();
+      this.year = this.date.getFullYear();
+
     } else{
       this.router.navigate(['/']);
     }
@@ -81,9 +87,6 @@ export class DangSPComponent implements OnInit {
   }
   onSubmit(){
     this.imgLink = (<HTMLInputElement>document.getElementById('imgLink')).value;
-    this.day = this.date.getDate();
-    this.month = this.date.getMonth();
-    this.year = this.date.getFullYear();
     const product = {
       cateID: this.cateID,
       proname: this.proname,
@@ -99,7 +102,7 @@ export class DangSPComponent implements OnInit {
     if(this.imgLink === null || this.imgLink === '' || this.imgLink === 'null'){
       alert('Đã có lỗi xảy ra, vui lòng thử lại');
       window.location.reload();
-    } else{
+    } else {
       this.productService.Add(product).subscribe(respone => {
           alert('Đăng sản phẩm thành công');
           window.location.reload();

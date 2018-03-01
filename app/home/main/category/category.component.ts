@@ -10,7 +10,7 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
   styleUrls: ['./category.component.css']
 })
 
-export class CategoryComponent implements OnInit, OnDestroy {
+export class CategoryComponent implements OnInit {
   public products: any[];
   public id: number;
   public subscription: Subscription;
@@ -18,23 +18,34 @@ export class CategoryComponent implements OnInit, OnDestroy {
   height: number;
   constructor(private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService) {
     this.height = 290;
-  }
-
-  getID(){
     this.subscription = this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
     });
+    this.getID();
+  }
+
+  getID() {
+    // this.productService.getProductbyID(this.id).subscribe((data: any) => {
+    //   this.products = data;
+    // }, error => alert('Error: ' + error));
+
+
+    this.productService.getProductbyID(this.id).subscribe((response: any) => {
+      this.products = response;
+    }, error => alert('Error: ' + error));
+
   }
   getProductWithID(){
     this.productService.getProductbyID(this.id).subscribe((data) => {
-      //this.router.navigate(['/danh-muc', this.id]);
       this.products = data;
     });
   }
-  ngOnInit(){
+
+  ngOnInit() {
+    debugger;
     this.getID();
 
-    this.getProductWithID();
+    // this.getProductWithID();
 
     // setTimeout(() => this.getProductWithID(), 1000);
 
@@ -44,10 +55,8 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
   loadMore() {
     this.height += 290;
-    document.getElementById('wrapper-sp').style.height = this.height+ 'px';
+    document.getElementById('wrapper-sp').style.height = this.height + 'px';
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
-  }
+
 }

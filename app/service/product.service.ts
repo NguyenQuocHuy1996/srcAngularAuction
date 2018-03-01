@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService {
-    private apiURL = "http://5a572260751d4e001277964d.mockapi.io/act/product";
+    private apiURL = "http://5a572260751d4e001277964d.mockapi.io/act/product/";
 
     now: any ;
     //Month - 1 = current month
@@ -67,7 +67,7 @@ export class ProductService {
     }
 
     //Get product by id Category
-    getProductbyID(id: number){
+    getProductbyID(id: number): Observable<any[]>{
       return this._http.get(this.apiURL)
         .map( res => {
           return res.json().filter((product) => product.cateID === id);
@@ -75,12 +75,19 @@ export class ProductService {
     }
 
     //Get product by id of product
+    // getOneProduct(id: number){
+    //   return this._http.get(this.apiURL)
+    //     .map( res => {
+    //       return res.json().filter((product) => product.id === id);
+    //   })
+    // }
+
     getOneProduct(id: number){
-      return this._http.get(this.apiURL)
-        .map( res => {
-          return res.json().filter((product) => product.id === id);
-      })
-    }
+        return this._http.get(this.apiURL + id)
+          .map( res => {
+            return res.json();
+        })
+      }
 
     getProductbyUser(userEmail: any){
       return this._http.get(this.apiURL)

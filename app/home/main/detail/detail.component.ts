@@ -13,6 +13,7 @@ import { ElementRef } from '@angular/core/src/linker/element_ref';
 })
 export class DetailComponent implements OnInit, OnDestroy {
   private productArr: any;
+  private aucArr: any;
   private id: number;
   private subscription: Subscription;
   public proname: any;
@@ -25,8 +26,9 @@ export class DetailComponent implements OnInit, OnDestroy {
   private username: any;
   private price: number;
   private auctionList: any;
-  private x: any;
-
+  private aucID: number;
+  private currentUser: any;
+  private userName: String;
   constructor(private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService, private auctionService: AuctionService) {
 
   }
@@ -37,30 +39,15 @@ export class DetailComponent implements OnInit, OnDestroy {
 
     this.productService.getOneProduct(this.id).subscribe((data) => {
       this.productArr = data;
-      this.proname = this.productArr.map(function(a) {
-        return a['proname'];
-      });
-      this.brand = this.productArr.map(function(b) {
-        return b['brand'];
-      });
-      this.warrantyperiod = this.productArr.map(function(c) {
-        return c['warrantyperiod'];
-      });
-      this.note = this.productArr.map(function(d) {
-        return d['note'];
-      });
-      this.yearpost = this.productArr.map(function(e) {
-        return e['yearpost'];
-      });
-      this.monthpost = this.productArr.map(function(f) {
-        return f['monthpost'];
-      });
-      this.daypost = this.productArr.map(function(g) {
-        return g['daypost'];
-      });
-      this.username = this.productArr.map(function(h) {
-        return h['username'];
-      });
+      this.proname = this.productArr.proname;
+      this.brand = this.productArr.brand;
+      this.warrantyperiod = this.productArr.warrantyperiod;
+      this.note = this.productArr.note;
+      this.yearpost = this.productArr.yearpost;
+      this.monthpost = this.productArr.monthpost;
+      this.daypost = this.productArr.daypost;
+      this.username = this.productArr.username;
+      this.productService.countdown(this.yearpost, Number(this.monthpost) , this.daypost);
     });
   }
 
@@ -71,33 +58,42 @@ export class DetailComponent implements OnInit, OnDestroy {
   onClick(){
     const auction = {
       productID: this.id,
-      userName: this.username,
+      userName: String(this.userName),
       price: this.price
     }
 
-    this.auctionService.getOneAuction(this.id).subscribe((data) => {
-      this.productArr = data;
-      this.x = this.productArr.map(function(a) {
-        return a['userName'];
-      });
-    });
+    if (Object.keys(this.aucArr).length){
+      this.auctionService.Edit(this.aucID, auction).subscribe ( response => {
+        alert('Bạn đã cập nhật giá đấu');
+      }, error => alert('Error: ' + error));
+    } else {
+      this.auctionService.Add(auction).subscribe ( response => {
+        alert('Đấu giá thành công');
+      }, error => alert('Error: ' + error));
+    }
 
-    console.log(this.x);
-    // this.auctionService.Add(auction).subscribe ( response => {
-    //   console.log(response);
-    //   alert('Đấu giá thành công');
-    // }, error => alert('Error: ' + error));
+    // console.log('Id of Product: ' + this.id);
+    // console.log('User name: ' + this.userName);
   }
-
   ngOnInit(){
     this.proname = this.brand = this.warrantyperiod = this.note = this.yearpost = this.monthpost = this.daypost = {};
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.userName = this.currentUser.userEmail;
 
     this.getAllProduct();
 
-    setTimeout(() => this.productService.countdown(this.yearpost, Number(this.monthpost) , this.daypost), 1000);
+    // setTimeout(() => this.productService.countdown(this.yearpost, Number(this.monthpost) , this.daypost), 1000);
+    // this.productService.countdown(this.yearpost, Number(this.monthpost) , this.daypost);
 
     // this.getAll().then(() =>
     // console.log(this.yearpost));
+
+    this.auctionService.getOneAuction(this.id, String(this.userName)).subscribe((data) => {
+      this.aucArr = data;
+      this.aucID = this.aucArr.map(function(e){
+        return e['id'];
+      });
+    });
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();

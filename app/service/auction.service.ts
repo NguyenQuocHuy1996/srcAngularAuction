@@ -6,7 +6,7 @@ import { observableToBeFn } from 'rxjs/testing/TestScheduler';
 
 @Injectable()
 export class AuctionService {
-    private apiURL = "http://5a572260751d4e001277964d.mockapi.io/act/auction";
+    private apiURL = "http://5a572260751d4e001277964d.mockapi.io/act/auction/";
 
     constructor (private _http: Http) {
 
@@ -20,15 +20,18 @@ export class AuctionService {
       return this._http.get(this.apiURL).map((response: Response) => response.json() )
     }
 
-    //Get product by id of product
-    getOneAuction(id: number){
+    //Get Auction by id of product and username
+    getOneAuction(id: number, userEmail: String){
       return this._http.get(this.apiURL)
         .map( res => {
-          return res.json().filter((auction) => auction.id === id);
+          return res.json().filter((auction) => auction.productID === id && String(auction.userName) === String(userEmail));
       })
     }
 
     Add(data): Observable<any>{
       return this._http.post(this.apiURL, data).map((response: Response) => response.json())
+    }
+    Edit(id: number, data: any): Observable<any>{
+      return this._http.put(this.apiURL + id, data).map((response: Response) => response.json())
     }
 }

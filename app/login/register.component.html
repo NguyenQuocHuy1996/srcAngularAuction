@@ -1,3 +1,6 @@
+<div id="loading" class="loading">
+  <img src="../../../../assets/img/gif.gif"/>
+</div>
 <div class="container">
   <div class="form">
     <div id="signup">
@@ -27,10 +30,13 @@
           <input #repass (keyup)="onRePass(repass.value)" type="password" required autocomplete="off" name="repass" placeholder="Nhập lại mật khẩu"/>
         </div>
 
-        
+        <div class="field-wrap">
+          <input type="number" required autocomplete="off" name="phone" [(ngModel)]="user.phone" placeholder="Số điện thoại"/>
+        </div>
+
           <button class="loginxx" type="submit">Đăng ký</button>
           <button class="loginxx" type="button" (click)="goToHome()">Về trang chủ</button>
-        
+
       </form>
     </div>
     <!-- tab-content -->

@@ -9,43 +9,58 @@
           </li>
           <div class="col-md-12 col-xs-12">
           <div class="col-xs-6 col-md-6 hinhphai" style="background-image:url('../../../../assets/img/qcao2-01.png');height:200px;background-size:100%;background-repeat:no-repeat;">
-              
+
           </div>
           <div class="col-xs-6 col-md-6 hinhphai"  style="background-image:url('../../../../assets/img/qcao1-01.png');height:200px;background-size:100%;background-repeat:no-repeat;float:right;">
-             
+
           </div>
         </div>
       </div>
       <div class="spchung">
-          <h3>Cac san pham dau gia</h3>
+          <h3>{{categoryName}}</h3>
           <div class="daugach2"></div>
-          <li>
+          <!-- <li>
               <a href="#">
                   XXAPT
               </a>
               <div class="daugach"></div>
-          </li>
+          </li> -->
           <div class="container-fluid">
               <div class="row">
                   <div class="sanpham" id="wrapper-sp">
                       <div class="row ">
-
                           <div class="sp-margin col-md-3 col-xs-12" *ngFor="let product of products | orderBy: id :true">
                               <div class="video1">
-                                  <img src="../../../../assets/img/sp1-01.png">
+                                  <img [src]="product.mainimage">
                                   <h4>{{product.proname}}</h4>
                                   <div class="col-ms-12 play_video">
                                       <h6>Người đăng: {{product.username}}</h6>
+                                      <div class="play_video">
+                                          <ul>
+                                            <li>
+                                              Người đăng: {{product.username}}
+                                            </li>
+                                          </ul>
+                                          <ul>
+                                            <li>
+                                              Thương hiệu: {{product.brand}}
+                                            </li>
+                                          </ul>
+                                          <ul>
+                                            <li>
+                                              Bảo hành: {{product.warrantyperiod}}
+                                            </li>
+                                          </ul>
                                       <a [routerLink]="['/san-pham',product.id]" class="btn btn--primary btn--inside uppercase">Đấu giá</a>
                                   </div>
                               </div>
                           </div>
                       </div>
-                      <p class="totop">
+                      <!-- <p class="totop">
                           <a href="#top">Back to top</a>
-                      </p>
+                      </p> -->
                   </div>
-                  <button (click)="loadMore()" class="btn-loadmore">Load More</button>
+                  <!-- <button (click)="loadMore()" class="btn-loadmore">Load More</button> -->
               </div>
           </div>
       </div>

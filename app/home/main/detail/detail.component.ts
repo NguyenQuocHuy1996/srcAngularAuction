@@ -12,6 +12,7 @@ import { ElementRef } from '@angular/core/src/linker/element_ref';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit, OnDestroy {
+  mainimage: any;
   private productArr: any;
   private aucArr: any;
   private id: number;
@@ -47,6 +48,7 @@ export class DetailComponent implements OnInit, OnDestroy {
       this.monthpost = this.productArr.monthpost;
       this.daypost = this.productArr.daypost;
       this.username = this.productArr.username;
+      this.mainimage = this.productArr.mainimage;
       this.productService.countdown(this.yearpost, Number(this.monthpost) , this.daypost);
     });
   }

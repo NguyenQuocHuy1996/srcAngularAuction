@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from './../../../service/product.service';
+import { CategoryService } from './../../../service/category.service';
 import { Subscription } from 'rxjs';
 import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 
@@ -11,51 +12,40 @@ import { OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
 })
 
 export class CategoryComponent implements OnInit {
+  categoryName: any;
+  category: any;
   public products: any[];
   public id: number;
   public subscription: Subscription;
   win: any;
   height: number;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService) {
-    this.height = 290;
-    this.subscription = this.activatedRoute.params.subscribe(params => {
-      this.id = params['id'];
-    });
-    this.getID();
-  }
-
-  getID() {
-    // this.productService.getProductbyID(this.id).subscribe((data: any) => {
-    //   this.products = data;
-    // }, error => alert('Error: ' + error));
-
-
-    this.productService.getProductbyID(this.id).subscribe((response: any) => {
-      this.products = response;
-    }, error => alert('Error: ' + error));
+  constructor(private categoryService: CategoryService, private router: Router, private activatedRoute: ActivatedRoute ,private productService: ProductService) {
 
   }
-  getProductWithID(){
-    this.productService.getProductbyID(this.id).subscribe((data) => {
-      this.products = data;
-    });
-  }
+  // getProductWithID(){
+  //   this.productService.getProductbyID(this.id).subscribe((data) => {
+  //     this.products = data;
+  //   });
+  // }
 
   ngOnInit() {
-    this.getID();
+    this.subscription = this.activatedRoute.params.subscribe(params => {
+      this.id = params['id'];
 
-    // this.getProductWithID();
-
-    // setTimeout(() => this.getProductWithID(), 1000);
-
-    // this.router.navigateByUrl('/danh-muc');
-    // //this.route.navigateByUrl('/componentC', true);
+      this.productService.getProductbyID(this.id).subscribe((response: any) => {
+        this.products = response;
+      }, error => alert('Error: ' + error));
+      this.categoryService.getOneCategory(this.id).subscribe(res => {
+        this.category = res;
+        this.categoryName = this.category.name;
+      });
+    });
   }
 
-  loadMore() {
-    this.height += 290;
-    document.getElementById('wrapper-sp').style.height = this.height + 'px';
-  }
+  // loadMore() {
+  //   this.height += 290;
+  //   document.getElementById('wrapper-sp').style.height = this.height + 'px';
+  // }
 
 
 }

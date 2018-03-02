@@ -5,11 +5,11 @@
 
       <ul class="nav nav-tabs">
           <li><a class="active" href="#sp" data-toggle="tab">Sản phẩm đã đăng</a></li>
-          <li><a href="#info" data-toggle="tab">Sản phẩm đã đấu giá</a></li>
+          <!-- <li><a href="#info" data-toggle="tab">Sản phẩm đã đấu giá</a></li> -->
       </ul>
       <div class="tab-content">
+          <!-- SP Da dang -->
           <div class="tab-pane active" id="sp">
-            <!-- SP Da dang -->
               <div class="col-md-12 dadang" *ngFor="let product of productArr; let i = index">
                 <div *ngIf="i < 4">
                     <div class="col-md-4 hinhsp">
@@ -19,7 +19,7 @@
                         <ul>
                             <li>
                                 <img src="../../../../assets/img/tamgiacdadang-01.png" />
-                                <a href="#">{{product.proname}}</a>
+                                <a [routerLink]="['/san-pham-da-dang/san-pham',product.id]">{{product.proname}}</a>
                             </li>
                         </ul>
                         <div class="col-md-12 sndg">
@@ -35,8 +35,9 @@
                 </div>
               </div>
           </div>
-          <div class="tab-pane" id="info">
-            <!-- SP Da dau gia -->
+
+          <!-- SP Da dau gia -->
+          <!-- <div class="tab-pane" id="info">
               <div class="col-md-12 dadang" *ngFor="let proAuc of productAuc">
                   <div class="col-md-4 hinhsp">
                       <img [src]="proAuc.mainimage" />
@@ -58,7 +59,7 @@
                       </div>
                   </div>
               </div>
-          </div>
+          </div> -->
       </div>
 
   </div>

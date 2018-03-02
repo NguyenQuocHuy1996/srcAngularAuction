@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class UserService {
-    private apiURL = "http://5a572260751d4e001277964d.mockapi.io/act/user";
+    private apiURL = "http://5a572260751d4e001277964d.mockapi.io/act/user/";
 
     constructor (private _http: Http) {
 

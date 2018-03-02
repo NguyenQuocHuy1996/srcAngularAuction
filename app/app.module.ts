@@ -27,6 +27,7 @@ import { ContactComponent } from './home/main/contact/contact.component';
 import { AboutUsComponent } from './home/main/about-us/about-us.component';
 
 import { SideBarHomeComponent } from './home/main/sidebar/sidebarHome.component';
+import { ChiTietSanPhamDaDangComponent } from './home/main/sp-da-dang/chi-tiet-sp-da-dang.component';
 
 import { ProductService } from './service/product.service';
 import { CategoryService } from './service/category.service';
@@ -52,7 +53,7 @@ import { ImageUploadModule } from 'angular2-image-upload';
     HomeComponent, LoginComponent, RegisterComponent, Page404Component,
     HeaderComponent, SliderComponent, MainComponent, FooterComponent,
     MainHomeComponent, DangSPComponent, CategoryComponent, SanPhamDaDangComponent, SanPhamDaDauGiaComponent, DetailComponent,
-    SideBarHomeComponent, ContactComponent, AboutUsComponent
+    SideBarHomeComponent, ContactComponent, AboutUsComponent, ChiTietSanPhamDaDangComponent
   ],
   imports: [
     BrowserModule,

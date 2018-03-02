@@ -32,7 +32,6 @@ export class SanPhamDaDangComponent implements OnInit {
     if(this.currentUser){
       this.userEmail = this.currentUser.userEmail;
       this.getProduct();
-      console.log(this.userEmail);
     }
   }
 }

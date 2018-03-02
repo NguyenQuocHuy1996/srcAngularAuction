@@ -1,0 +1,74 @@
+<!-- phai -->
+<div class="col-md-8 col-xs-12 phai">
+    <div class="row phai1">
+        <h3>Các sản phẩm đã đăng</h3>
+        <div class="daugach">
+        </div>
+        <div class="col-md-12 col-xs-12 phai3">
+            <div class="col-md-12 col-xs-12 sanpham">
+                <div class="col-md-3 col-xs-4 hinhspdd">
+                    <img [src]="mainimage" alt="">
+                </div>
+                <div class="col-md-9 col-xs-8 ttspdd">
+                    <ul>
+                        <li>
+                            <img src="../../../../assets/img/tamgiacdadang-01.png" />
+                            <a href="#">{{proname}}</a>
+                        </li>
+                    </ul>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="col-md-2 col-xs-3 iconman">
+                            <img src="../../../../assets/img/man-user.png" />
+                        </div>
+                        <div class="col-md-10 col-xs-9 sndg">
+                            <!-- <ul>
+                                <li>
+                                    Số người đấu giá:
+                                    <a href="#">120</a>
+                                </li>
+                            </ul> -->
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12">
+                        <div class="col-md-2 col-xs-3 iconman">
+                            <img src="../../../../assets/img/schedule-button.png" />
+                        </div>
+                        <div class="col-md-10 col-xs-9 sndg">
+                            <ul>
+                                <li>
+                                    Thời gian còn lại:
+                                    <span id="days"></span><span id="hours"></span><span id="minutes"></span><span id="seconds"></span>
+                                    <!-- <span>10:00:00</span> -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <table class="container col-md-12 col-xs-12">
+                    <thead>
+                        <tr>
+                            <th>
+                                <h1>Tên người đấu giá</h1>
+                            </th>
+                            <th>
+                                <h1>Số điện thoại</h1>
+                            </th>
+                            <th>
+                                <h1>Số tiền</h1>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let auc of auctionArr | orderBy: id :true ">
+                        <tr *ngFor="let user of filterUser(auc) | orderBy: id :true">
+                            <td>{{user.email}}</td>
+                            <td>{{user.phone}}</td>
+                            <td>{{auc.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- het phai -->

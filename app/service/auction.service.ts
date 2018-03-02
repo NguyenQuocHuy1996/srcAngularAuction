@@ -20,11 +20,24 @@ export class AuctionService {
       return this._http.get(this.apiURL).map((response: Response) => response.json() )
     }
 
+    getAuctionByIDProduct(id: number):Observable<any[]>{
+        return this._http.get(this.apiURL)
+        .map( res => {
+          return res.json().filter((auction) => auction.productID === id );
+      })
+    }
+
     //Get Auction by id of product and username
     getOneAuction(id: number, userEmail: String){
       return this._http.get(this.apiURL)
         .map( res => {
           return res.json().filter((auction) => auction.productID === id && String(auction.userName) === String(userEmail));
+      })
+    }
+    getAuctionByID(id: number){
+      return this._http.get(this.apiURL + id)
+        .map( res => {
+          return res.json();
       })
     }
 

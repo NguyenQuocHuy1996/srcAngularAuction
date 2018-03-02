@@ -11,7 +11,7 @@
       </li>
     </ul>
     <div *ngFor="let product of products | orderBy:'id':true;let i = index">
-      <div class="col-md-12 dadang" *ngIf="i<6">
+      <div class="col-md-12 dadang" *ngIf="i<5">
         <div class="col-md-4 hinhsp">
           <img [src]="product.mainimage" />
         </div>

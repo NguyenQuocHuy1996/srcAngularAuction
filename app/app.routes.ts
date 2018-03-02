@@ -15,6 +15,7 @@ import { SanPhamDaDauGiaComponent } from './home/main/sp-da-dau-gia/sp-da-dau-gi
 import { DetailComponent } from './home/main/detail/detail.component';
 import { ContactComponent } from './home/main/contact/contact.component';
 import { AboutUsComponent } from './home/main/about-us/about-us.component';
+import { ChiTietSanPhamDaDangComponent } from './home/main/sp-da-dang/chi-tiet-sp-da-dang.component';
 
 import { CheckLoginGuard } from './guards/checkLogin.guard';
 
@@ -33,7 +34,12 @@ const routing: Routes = [
       // { path: 'dang-san-pham', component: DangSPComponent, canActivate: [CheckLoginGuard] },
       { path: 'dang-san-pham', component: DangSPComponent},
       { path: 'san-pham-da-dau-gia', component: SanPhamDaDauGiaComponent, canActivate: [CheckLoginGuard] },
-      { path: 'san-pham-da-dang', component: SanPhamDaDangComponent, canActivate: [CheckLoginGuard] },
+      { path: 'san-pham-da-dang', component: SanPhamDaDangComponent, canActivate: [CheckLoginGuard],
+        children: [
+          { path: 'san-pham/:id', component: ChiTietSanPhamDaDangComponent, canActivate: [CheckLoginGuard] }
+          // { path: 'san-pham/:id', component: ChiTietSanPhamDaDangComponent }
+        ]
+      },
       { path: 'lien-he', component: ContactComponent },
       { path: 've-chung-toi', component: AboutUsComponent }
     ]

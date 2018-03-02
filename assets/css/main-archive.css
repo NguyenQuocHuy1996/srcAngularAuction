@@ -71,7 +71,8 @@
 
 }
 .video1 img{
-	width: 100%;
+	width: 190px;
+	height:100%;
 	box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.466);
 }
 
@@ -85,8 +86,12 @@
 }
 
 .video1{
-	margin-top: 17px;
-	position: relative;
+	height: 280px;
+    background: #d8d2d2;
+    margin-top: 17px;
+    position: relative;
+    padding-top: 10px;
+    padding-bottom: 10px;
 
 }
 .video1 .play_video ul li{
